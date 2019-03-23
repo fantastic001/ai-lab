@@ -1,0 +1,9 @@
+C:\Users\uib56677\ai-lab\1\PretrageOsnovno\obj\x86\Debug\PretrageOsnovno.csprojAssemblyReference.cache
+C:\Users\uib56677\ai-lab\1\PretrageOsnovno\obj\x86\Debug\PretrageOsnovno.csproj.CoreCompileInputs.cache
+C:\Users\uib56677\ai-lab\1\PretrageOsnovno\bin\Debug\Graphs\NodesDodatno.txt
+C:\Users\uib56677\ai-lab\1\PretrageOsnovno\bin\Debug\Graphs\Nodes.txt
+C:\Users\uib56677\ai-lab\1\PretrageOsnovno\bin\Debug\Graphs\Graph.txt
+C:\Users\uib56677\ai-lab\1\PretrageOsnovno\bin\Debug\PretrageOsnovno.exe
+C:\Users\uib56677\ai-lab\1\PretrageOsnovno\bin\Debug\PretrageOsnovno.pdb
+C:\Users\uib56677\ai-lab\1\PretrageOsnovno\obj\x86\Debug\PretrageOsnovno.exe
+C:\Users\uib56677\ai-lab\1\PretrageOsnovno\obj\x86\Debug\PretrageOsnovno.pdb
