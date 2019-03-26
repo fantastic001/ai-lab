@@ -110,7 +110,7 @@ namespace Lavirint
 
             // TODO 5 implementirati formulu za update vrednosti
             qTable[currentNode.GetHashCode()][action] +=
-                this.learningRate * qTarget;
+                this.learningRate * (qTarget - qPredict);
         }
     }
 }
