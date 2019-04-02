@@ -27,6 +27,7 @@ namespace Lavirint
                 State naObradi = findMin(stanjaNaObradi);
 
                 if (! visited.ContainsKey(naObradi.GetHashCode()))
+                //if (! naObradi.cirkularnaPutanja())
                 {
                     Main.allSearchStates.Add(naObradi);
                     visited.Add(naObradi.GetHashCode(), null);
@@ -59,7 +60,7 @@ namespace Lavirint
             double c = s.cost;
             return s.cost + Math.Abs(Main.krajnjiNode.markI - s.node.markI)
                 //+ Math.Abs(Main.krajnjiNode.markJ - s.node.markJ)
-                - 10*Math.Abs(fireI - s.node.markI)  - 10*Math.Abs(fireJ - s.node.markJ)
+                - Math.Abs(fireI - s.node.markI)  - Math.Abs(fireJ - s.node.markJ)
                 ;
         }
     }

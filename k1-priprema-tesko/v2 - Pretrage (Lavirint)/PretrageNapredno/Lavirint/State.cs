@@ -21,7 +21,11 @@ namespace Lavirint
             rez.level = this.level + 1;
             rez.kutije = new List<Node>(kutije);
             if (Main.lavirint.polja[node.markI, node.markJ] == 4) {
-                if (! rez.kutije.Contains(node)) rez.kutije.Add(node);
+                if (!rez.kutije.Contains(node))
+                {
+                    //Main.lavirint.polja[node.markI, node.markJ] = 0;
+                    rez.kutije.Add(node);
+                }
             }
             return rez;
         }
@@ -33,6 +37,11 @@ namespace Lavirint
             foreach (Node nextNode in this.node.getLinkedNodes())
             {
                 State next = sledeceStanje(nextNode);
+                //bool found = false; 
+                //foreach (State prev in path()) {
+                //    found = found || prev.node.Equals(next.node);
+                //}
+                //if (!found) 
                 rez.Add(next);
             }
             return rez;
@@ -62,14 +71,14 @@ namespace Lavirint
             int i;
             int c = 0;
             for (i = 0; i < grana.Count; i++) {
-                if (grana[i].Equals(this)) c++;
+                if (grana[i].node.Equals(this.node)) c++;
             }
             return c > 1;        
         }
 
         public override int GetHashCode()
         {
-            int code =  100 * 100 * this.node.markI + 100 * node.markJ;
+            int code =  100 * this.node.markI + node.markJ;
             for (int i = 0; i < 2; i++) {
                 code *= 10000;
                 if (i < kutije.Count)

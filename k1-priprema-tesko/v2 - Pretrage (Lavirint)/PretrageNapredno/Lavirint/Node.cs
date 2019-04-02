@@ -18,7 +18,8 @@ namespace Lavirint
         {
 
             return markI >= 0 && markI < Main.lavirint.brojVrsta && markJ >= 0 && markJ < Main.lavirint.brojKolona &&
-                Main.lavirint.polja[markI, markJ] != 1; 
+                Main.lavirint.polja[markI, markJ] != 1
+                && Main.lavirint.polja[markI, markJ] != 5; 
         }
 
         public List<Node> getLinkedNodes()

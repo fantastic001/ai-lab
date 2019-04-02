@@ -12,12 +12,14 @@ namespace Lavirint
         {
             List<State> stanjaNaObradi = new List<State>();
             stanjaNaObradi.Add(pocetnoStanje);
+            Hashtable visited = new Hashtable();
             while (stanjaNaObradi.Count > 0)
             {
                 State naObradi = stanjaNaObradi[0];
 
-                if (!naObradi.cirkularnaPutanja())
+                if (! visited.Contains(naObradi.GetHashCode()))
                 {
+                    visited.Add(naObradi.GetHashCode(), null);
                     Main.allSearchStates.Add(naObradi);
                     if (naObradi.isKrajnjeStanje())
                     {
