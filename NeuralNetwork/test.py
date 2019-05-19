@@ -3,8 +3,8 @@ from NeuralNetwork import *
 
 nn = NeuralNetwork()
 
-error = lambda y,t: (y-t)**2
-error_derivative = lambda y,t: 2*(y-t) # derivative with respect to y
+error = lambda y,t: (t-y)**2
+error_derivative = lambda y,t: -2*(t-y) # derivative with respect to y
 alpha = 0.1
 n_iter = 10
 x = [[0,0], [0,1], [1,0], [1,1]]
@@ -29,3 +29,17 @@ print(nn.forward([0,0]))
 print(nn.forward([0,1]))
 print(nn.forward([1,0]))
 print(nn.forward([1,1]))
+
+print("Linear regression ________________________")
+nn = NeuralNetwork()
+nn.add_input_layer(1, 5, lambda x: x, lambda x: 1)
+nn.add_layer(1, lambda x: x, lambda x: 1)
+
+x = [[0], [1], [5], [10]]
+y = [[0], [1], [5], [10]]
+nn.train(x, y, error_derivative, alpha, 4, batch_selection)
+print("Training finished ______________________")
+print(nn.forward([0]))
+print(nn.forward([1]))
+print(nn.forward([4]))
+print(nn.forward([7]))
