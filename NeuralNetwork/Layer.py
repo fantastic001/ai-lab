@@ -15,7 +15,7 @@ class Layer:
         return np.array(list(n.forward(x) for n in self.neurons))
 
     def forward_no_activation(self, x):
-        return np.array(list(n.forward_no_activatioon(x) for n in self.neurons))
+        return np.array(list(n.forward_no_activation(x) for n in self.neurons))
     
     def backward(self, x):
         return np.array(list(n.df(n.forward_no_activation(x)) for n in self.neurons))

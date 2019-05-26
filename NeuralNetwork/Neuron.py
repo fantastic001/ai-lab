@@ -7,7 +7,7 @@ class Neuron:
         self.n_inputs = n_inputs 
         self.f = f 
         self.df = df 
-        self.w = np.array(list([1000 * random.random() for x in range(n_inputs+1)]))
+        self.w = np.array(list([1000*random.random() for x in range(n_inputs+1)]))
 
     def forward_no_activation(self, x):
         x = np.concatenate((np.array([1]), np.array(x)))

@@ -5,8 +5,8 @@ nn = NeuralNetwork()
 
 error = lambda y,t: (t-y)**2
 error_derivative = lambda y,t: -2*(t-y) # derivative with respect to y
-alpha = 0.1
-n_iter = 10
+alpha = 0.0001
+n_iter = 1000
 x = [[0,0], [0,1], [1,0], [1,1]]
 y = [[1],[0],[0],[1]]
 
@@ -19,9 +19,13 @@ def batch_selection(x, y):
     i += 1
     return x[i:i+1], y[i:i+1]
 
-nn.add_input_layer(2, 5, lambda x: 1 / (1 + np.exp(-x)), lambda x: np.exp(-x) / ((1 + np.exp(-x) ** 2)))
-nn.add_layer(1, lambda x: 1 / (1 + np.exp(-x)), lambda x: np.exp(-x) / ((1 + np.exp(-x) ** 2)))
-nn.train(x, y, error_derivative, alpha, n_iter, batch_selection)
+
+h = lambda x: 1 / (1 + np.exp(-x))
+dh =lambda x: h(x) * ( 1 - h(x))
+
+nn.add_input_layer(2, 5, h, dh)
+nn.add_layer(1, h, dh)
+nn.train(x, y, error_derivative, alpha, n_iter, batch_selection, error)
 
 
 print("Training finished ______________________")
@@ -32,12 +36,12 @@ print(nn.forward([1,1]))
 
 print("Linear regression ________________________")
 nn = NeuralNetwork()
-nn.add_input_layer(1, 5, lambda x: x, lambda x: 1)
-nn.add_layer(1, lambda x: x, lambda x: 1)
+nn.add_input_layer(1, 5, h, dh)
+nn.add_layer(1, h, dh)
 
 x = [[0], [1], [5], [10]]
 y = [[0], [1], [5], [10]]
-nn.train(x, y, error_derivative, alpha, 4, batch_selection)
+nn.train(x, y, error_derivative, alpha, 100, batch_selection, error)
 print("Training finished ______________________")
 print(nn.forward([0]))
 print(nn.forward([1]))
